@@ -79,33 +79,33 @@ def jogo_dois_ou_um():
             # PODERÍAMOS FORÇAR PARA INT PARA PODER CRIAR UMA CONDIÇÃO LOGICA ASSIM: chute = int(chute), MAS COMO ESTAMOS UTILIZANDO O METODO TRY/EXCEPT, ELE JÁ FAZ A VALIDAÇÃO
             
             # ↓ AQUI A CONDIÇÃO LERÁ SE O CHUTE RESPEITA AS OPÇÕES
-            if chute == 1 or chute == 2:
-                # ↓ AQUI CRIAMOS A CONDIÇÃO QUE LERÁ SE O USUÁRIO ACERTOU OU ERROU O CHUTE
-                if chute == numero:
-                    print("Número: ", numero,"\n Seu chute: ", chute, "\n")
-                    print("🥳 PARABÉNS, VOCÊ ACERTOU! 🥳\n")
-                    # ↓ AQUI A RESPOSTA DO USUARIO DEFINIRÁ SE O LAÇO DO JOGO SE REPETIRÁ OU NÃO
-                    repita = input("QUER JOGAR DE NOVO? [1-SIM/2-NÃO]: ")
-                    # RECEBENDO O DADO COMO STRING, QUALQUER RESPOSTA QUE NÃO SEJA O "1" ACIONARÁ O "ELSE" 
-                    if repita == "1":
-                        repita = True
-                    else:
-                        repita = False
-                else:
-                    print("Número: ", numero,"\n Seu chute: ", chute, "\n")
-                    print('❌ Que azar! Como diria Raul Seixas: "Tente outra vez! 💪"\n')
-                    # ↓ AQUI A RESPOSTA DO USUARIO DEFINIRÁ SE O LAÇO DO JOGO SE REPETIRÁ OU NÃO
-                    repita = input("QUER JOGAR DE NOVO? [1-SIM/ 0-NÃO]: ")
-                    # RECEBENDO O DADO COMO STRING, QUALQUER RESPOSTA QUE NÃO SEJA O "1" ACIONARÁ O "ELSE" 
-                    if repita == "1":
-                        repita = True
-                    else:
-                        repita = False
-            # ↓ ESTE ELSE É ACIONADO CASO O USUÁRIO DIGITE UM NÚMERO INVÁLIDO
-            else:
+            if chute != 1 and chute != 2:
                 print("\n➡Séloko caxuêra? Tem que ser o número 1 ou 2.\n")
                 print("➡Vai lá, tô torcendo. 😉\n")
                 continue
+
+            # ↓ AQUI CRIAMOS A CONDIÇÃO QUE LERÁ SE O USUÁRIO ACERTOU OU ERROU O CHUTE
+            if chute == numero:
+                print("Número: ", numero,"\n Seu chute: ", chute, "\n")
+                print("🥳 PARABÉNS, VOCÊ ACERTOU! 🥳\n")
+                # ↓ AQUI A RESPOSTA DO USUARIO DEFINIRÁ SE O LAÇO DO JOGO SE REPETIRÁ OU NÃO
+                repita = input("QUER JOGAR DE NOVO? [1-SIM/2-NÃO]: ")
+                # RECEBENDO O DADO COMO STRING, QUALQUER RESPOSTA QUE NÃO SEJA O "1" ACIONARÁ O "ELSE" 
+                if repita == "1":
+                    repita = True
+                else:
+                    repita = False
+            else:
+                print("Número: ", numero,"\n Seu chute: ", chute, "\n")
+                print('❌ Que azar! Como diria Raul Seixas: "Tente outra vez! 💪"\n')
+                # ↓ AQUI A RESPOSTA DO USUARIO DEFINIRÁ SE O LAÇO DO JOGO SE REPETIRÁ OU NÃO
+                repita = input("QUER JOGAR DE NOVO? [1-SIM/ 0-NÃO]: ")
+                # RECEBENDO O DADO COMO STRING, QUALQUER RESPOSTA QUE NÃO SEJA O "1" ACIONARÁ O "ELSE" 
+                if repita == "1":
+                    repita = True
+                else:
+                    repita = False
+
         except:
             print("\n--> Formato inválido! Deve ser um número inteiro, entre 1 e 2. \n")
             repita = True
